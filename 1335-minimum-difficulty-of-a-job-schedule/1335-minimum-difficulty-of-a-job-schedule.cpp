@@ -1,8 +1,8 @@
 class Solution {
 public:
     int dp[301][11];
-    int solve(int i, int n, int j, vector<int>&num, int d){
-        if(n < d)
+    int solve(int i, int n, int j, vector<int>&num, int days){
+        if(n < days)
             return -1; 
         if(j < 0)
             return 1e9;
@@ -20,15 +20,14 @@ public:
         for(int curri = i; curri < n; curri++)
         {
             maxi = max(maxi, num[curri]);
-            res = min(res, maxi+solve(curri+1, n, j-1, num,d));
+            res = min(res, maxi+solve(curri+1, n, j-1, num,days));
         }
         return dp[i][j] = res;
     }
-    int minDifficulty(vector<int>& nums, int d) {
-        int n = nums.size();
-         
+    int minDifficulty(vector<int>& nums, int days) {
+        int n = nums.size(); 
         memset(dp, -1, sizeof(dp));
-        int ans = solve(0, n, d, nums,d);
+        int ans = solve(0, n, days, nums,days);
         return ans;        
     }
 };
