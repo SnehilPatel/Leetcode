@@ -30,8 +30,8 @@ public:
         memset(dp, -1, sizeof(dp));
         int ans = solve(0, n, d, nums);
         
-        if(ans >= 1e9)
-            return -1;
+        // if(ans >= 1e9)
+        //     return -1;
         return ans;        
     }
 };
