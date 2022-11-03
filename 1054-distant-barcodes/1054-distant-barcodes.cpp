@@ -26,9 +26,6 @@ public:
                 if(x.first != 0){
                     ans.push_back(x.second);
                     x.first = x.first - 1;
-                    // if(x.first != 0){
-                    //     pq.push(x);
-                    // }
                     pq.push(x);
                 }
             }
